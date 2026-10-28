@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "window": {
+    "navigationBarTitleText": "回访提醒",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7f7",
+    "backgroundTextStyle": "light"
+  },
+  "permission": {
+    "scope.addPhoneCalendar": {
+      "desc": "用于将回访提醒添加到手机系统日历"
+    }
+  },
+  "style": "v2"
+}

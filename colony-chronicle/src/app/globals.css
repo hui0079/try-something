@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+:root {
+  --background: #14100c;
+  --surface: #1d1811;
+  --surface-raised: #262017;
+  --foreground: #e8ddc8;
+  --muted: #a3927a;
+  --line: rgba(214, 176, 112, 0.18);
+  --accent: #d9a54a;
+  --good: #8ba85c;
+  --warn: #d08a3c;
+  --danger: #c4603f;
+  --water: #5c93a8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-water: var(--water);
+  --font-sans: "Segoe UI", "Microsoft YaHei", sans-serif;
+  --font-serif: "Songti SC", "SimSun", "Noto Serif CJK SC", serif;
+  --font-mono: Consolas, "Courier New", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  /* Faint grain so the dark panels read as parchment rather than as a terminal. */
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(217, 165, 74, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(139, 168, 92, 0.05), transparent 45%);
+  background-attachment: fixed;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* The chronicle is the one place that should feel like a book. */
+.chronicle-prose {
+  font-family: var(--font-serif);
+  letter-spacing: 0.01em;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 176, 112, 0.3) transparent;
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(214, 176, 112, 0.28);
+  border-radius: 4px;
+}
+
+/* The living picture of one region. Layers stack from sky down to the path. */
+.scene-frame {
+  position: relative;
+  height: 13.5rem;
+  overflow: hidden;
+  background: #1a2418;
+}
+
+.scene-frame[data-weather="clear"] .scene-sky {
+  background: linear-gradient(#3d5f78, #c4a06a 70%);
+}
+.scene-frame[data-weather="overcast"] .scene-sky,
+.scene-frame[data-weather="rain"] .scene-sky {
+  background: linear-gradient(#3a4248, #7d7364 72%);
+}
+.scene-frame[data-weather="storm"] .scene-sky {
+  background: linear-gradient(#1c242c, #4a5560 75%);
+}
+.scene-frame[data-weather="drought"] .scene-sky {
+  background: linear-gradient(#8a6a3e, #d2b48a 70%);
+}
+.scene-frame[data-weather="coldSnap"] .scene-sky {
+  background: linear-gradient(#8ea4b8, #d5dde4 72%);
+}
+
+.scene-sky,
+.scene-ridge,
+.scene-water,
+.scene-ground,
+.scene-fields,
+.scene-trees,
+.scene-houses,
+.scene-folk,
+.scene-deer,
+.scene-frost,
+.scene-rain {
+  position: absolute;
+  inset-inline: 0;
+}
+
+.scene-sky {
+  inset: 0;
+}
+
+.scene-ridge {
+  bottom: 38%;
+  height: 28%;
+  background: radial-gradient(120% 100% at 50% 100%, #3d4a34 40%, transparent 41%);
+}
+
+.scene-water {
+  bottom: 28%;
+  background: linear-gradient(rgba(92, 147, 168, 0.15), rgba(92, 147, 168, 0.55));
+  transition: height 400ms ease;
+}
+
+.scene-ground {
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(#6b5434, #3e2e1c);
+}
+
+.scene-frame[data-weather="drought"] .scene-ground {
+  background: linear-gradient(#a4844e, #6a4e2c);
+}
+
+.scene-fields {
+  right: auto;
+  bottom: 34%;
+  left: 8%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  width: 38%;
+  height: 16%;
+}
+
+.scene-crop {
+  width: 3px;
+  height: 70%;
+  transform-origin: bottom center;
+  border-radius: 2px 2px 0 0;
+  background: #8ba85c;
+  animation: scene-sway 2.8s ease-in-out infinite;
+}
+
+.scene-trees {
+  right: 4%;
+  bottom: 30%;
+  left: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  width: 52%;
+  height: 42%;
+}
+
+.scene-tree {
+  transform-origin: bottom center;
+  animation: scene-sway 4.5s ease-in-out infinite;
+}
+
+.scene-houses {
+  bottom: 28%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  height: 34%;
+  padding-left: 10%;
+}
+
+.scene-folk {
+  bottom: 8%;
+  height: 28%;
+}
+
+.scene-walker {
+  position: absolute;
+  bottom: 0;
+  animation: scene-walk 8s ease-in-out infinite;
+}
+
+.scene-deer {
+  position: absolute;
+  right: 14%;
+  bottom: 31%;
+  left: auto;
+  display: flex;
+  gap: 0.25rem;
+  animation: scene-walk 11s ease-in-out infinite;
+}
+
+.scene-smoke {
+  animation: scene-smoke 2.4s ease-out infinite;
+}
+
+.scene-rain span {
+  position: absolute;
+  top: -10%;
+  width: 1px;
+  height: 14px;
+  background: rgba(232, 221, 200, 0.45);
+  animation: scene-fall 0.9s linear infinite;
+}
+
+.scene-frost {
+  inset: 0;
+  background: rgba(220, 232, 240, 0.18);
+  pointer-events: none;
+}
+
+.scene-empty {
+  filter: saturate(0.72);
+}
+
+.scene-caption {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.45rem;
+  left: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 12px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+@keyframes scene-sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes scene-walk {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(36px);
+  }
+}
+
+@keyframes scene-smoke {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+}
+
+@keyframes scene-fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(16rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-walker,
+  .scene-crop,
+  .scene-tree,
+  .scene-smoke,
+  .scene-deer,
+  .scene-rain span {
+    animation: none;
+  }
+}

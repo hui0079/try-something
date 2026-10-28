@@ -1,0 +1,22 @@
+<idea-plugin>
+    <id>codecat</id>
+    <name>代码猫</name>
+    <vendor>try-something</vendor>
+    <description><![CDATA[
+        A pixel orange cat that walks on your current line in the editor.
+        It sleeps when you idle, startles at syntax errors, and stretches when Make succeeds.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <idea-version since-build="233.14015"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <editorFactoryListener implementation="codecat.CatEditorFactoryListener"/>
+        <postStartupActivity implementation="codecat.CatStartupActivity"/>
+    </extensions>
+    <projectListeners>
+        <listener class="codecat.CatCompileListener"
+                  topic="com.intellij.openapi.compiler.CompilationStatusListener"/>
+    </projectListeners>
+</idea-plugin>

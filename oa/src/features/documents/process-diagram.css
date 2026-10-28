@@ -1,0 +1,12 @@
+.oa-diagram .djs-container {
+  height: 100%;
+}
+
+.oa-diagram .oa-current .djs-visual > :nth-child(1) {
+  stroke: #d97706 !important;
+  stroke-width: 3px !important;
+}
+
+.oa-diagram .oa-completed .djs-visual > :nth-child(1) {
+  stroke: #059669 !important;
+}

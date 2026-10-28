@@ -1,0 +1,189 @@
+.page {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3.5rem 0 5rem;
+}
+
+.hero {
+  max-width: 38rem;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Iowan Old Style", Palatino, "Songti SC", serif;
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.lede {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.uploads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dropzone {
+  position: relative;
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  padding: 2.6rem 1.1rem 1.1rem;
+  border: 1px dashed var(--line);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.dropzoneFilled {
+  justify-content: flex-start;
+}
+
+.dropLabel {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+}
+
+.dropHint {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fileName {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  max-height: 32rem;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(28, 25, 21, 0.04);
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.types {
+  margin: 1.6rem 0 1.2rem;
+  padding: 0;
+  border: 0;
+}
+
+.types legend {
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+}
+
+.typeRow {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.typeOption {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.submit {
+  appearance: none;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 1rem 0 0;
+  color: var(--error);
+}
+
+.result {
+  margin-top: 2.2rem;
+}
+
+.result h2 {
+  margin: 0 0 0.8rem;
+  font-family: "Iowan Old Style", Palatino, "Songti SC", serif;
+  font-weight: 500;
+}
+
+.result img {
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  height: auto;
+  object-fit: contain;
+  background: var(--card);
+}
+
+.download {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--ink);
+}
+
+.notes {
+  margin-top: 2.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.notes p {
+  margin: 0 0 0.4rem;
+}
+
+@media (max-width: 760px) {
+  .uploads {
+    grid-template-columns: 1fr;
+  }
+
+  .dropzone {
+    min-height: 16rem;
+  }
+}

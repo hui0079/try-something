@@ -1,0 +1,30 @@
+:root {
+  --ink: #1c1915;
+  --muted: #74685b;
+  --paper: #f4efe6;
+  --card: #fffaf2;
+  --line: rgba(28, 25, 21, 0.18);
+  --error: #8f2d2d;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(143, 45, 45, 0.08), transparent 28rem),
+    var(--paper);
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}

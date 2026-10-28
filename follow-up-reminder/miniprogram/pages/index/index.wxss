@@ -1,0 +1,134 @@
+.page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 40rpx 32rpx 64rpx;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28rpx;
+}
+
+.hero-title {
+  color: #172b4d;
+  font-size: 48rpx;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.hero-subtitle {
+  margin-top: 12rpx;
+  color: #5d6b82;
+  font-size: 27rpx;
+  line-height: 1.6;
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28rpx;
+  padding: 24rpx 28rpx;
+  border: 1rpx solid #f0d98b;
+  border-radius: 16rpx;
+  background: #fff9e8;
+  color: #6b5715;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.notice-title {
+  margin-bottom: 4rpx;
+  font-weight: 700;
+}
+
+.card {
+  padding: 8rpx 28rpx;
+  border-radius: 20rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 28rpx rgba(31, 54, 90, 0.06);
+}
+
+.field {
+  padding: 26rpx 0;
+  border-bottom: 1rpx solid #edf0f4;
+}
+
+.field-last {
+  border-bottom: 0;
+}
+
+.label {
+  display: block;
+  margin-bottom: 14rpx;
+  color: #253858;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.required {
+  color: #c93737;
+}
+
+.control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 84rpx;
+  padding: 20rpx 22rpx;
+  border: 1rpx solid #cbd3df;
+  border-radius: 12rpx;
+  background: #ffffff;
+  color: #172b4d;
+  font-size: 29rpx;
+}
+
+.picker-control {
+  line-height: 44rpx;
+}
+
+.interval-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.interval-picker,
+.interval-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.note {
+  min-height: 132rpx;
+  line-height: 1.5;
+}
+
+.help {
+  display: block;
+  margin-top: 10rpx;
+  color: #738097;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.submit {
+  margin-top: 34rpx;
+  border-radius: 14rpx;
+  background: #1769aa;
+  font-size: 31rpx;
+  font-weight: 600;
+}
+
+.submit[disabled] {
+  background: #aab4c2;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-note {
+  display: block;
+  padding: 22rpx 16rpx 0;
+  color: #66758c;
+  font-size: 25rpx;
+  line-height: 1.6;
+  text-align: center;
+}

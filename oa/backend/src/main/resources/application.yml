@@ -1,0 +1,50 @@
+server:
+  port: 8090
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: lax
+
+spring:
+  datasource:
+    # 填测试环境 PostgreSQL 的地址、账号和密码。项目不会在本地启动数据库。
+    url: jdbc:postgresql://127.0.0.1:5432/oa_test
+    username: postgres
+    password: change-me
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: oa
+  flyway:
+    enabled: true
+    create-schemas: true
+    schemas: oa
+    default-schema: oa
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+
+app:
+  frontend-origin: http://localhost:3001
+  storage-dir: ./data/uploads
+
+flowable:
+  database-schema: oa
+  database-schema-update: true
+  async-executor-activate: false
+  check-process-definitions: false
+  jpa-enabled: false
+  history-level: full
+  idm:
+    enabled: false
+  eventregistry:
+    enabled: false

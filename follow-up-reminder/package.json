@@ -1,0 +1,14 @@
+{
+  "name": "follow-up-reminder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^5.0.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

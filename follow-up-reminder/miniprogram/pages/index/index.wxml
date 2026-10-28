@@ -1,0 +1,103 @@
+<view class="page">
+  <view class="hero">
+    <text class="hero-title">创建回访提醒</text>
+    <text class="hero-subtitle">仅添加到本机系统日历，本小程序不保存任何数据。</text>
+  </view>
+
+  <view class="notice">
+    <text class="notice-title">隐私提示</text>
+    <text>请勿录入诊断、身份证号或完整病历，仅填写识别回访所需的最少信息。</text>
+  </view>
+
+  <view class="card">
+    <view class="field">
+      <text class="label">患者编号 / 简称 <text class="required">*</text></text>
+      <input
+        class="control"
+        aria-label="患者编号或简称"
+        value="{{form.patientIdentifier}}"
+        maxlength="{{maxPatientLength}}"
+        placeholder="例如：P-001 或 王阿姨"
+        bindinput="onPatientInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="label">回访间隔（天） <text class="required">*</text></text>
+      <view class="interval-row">
+        <picker
+          class="interval-picker"
+          aria-label="选择常用回访间隔"
+          mode="selector"
+          range="{{commonIntervals}}"
+          value="{{selectedIntervalIndex}}"
+          bindchange="onIntervalPick"
+        >
+          <view class="control picker-control">{{intervalPickerLabel}}</view>
+        </picker>
+        <input
+          class="control interval-input"
+          aria-label="输入回访间隔天数"
+          type="number"
+          value="{{form.intervalDays}}"
+          placeholder="{{minInterval}}–{{maxInterval}}"
+          bindinput="onIntervalInput"
+        />
+      </view>
+      <text class="help">可选常用天数，也可输入 {{minInterval}}–{{maxInterval}} 的整数。</text>
+    </view>
+
+    <view class="field">
+      <text class="label">回访日期 <text class="required">*</text></text>
+      <picker
+        aria-label="选择回访日期"
+        mode="date"
+        value="{{form.reminderDate}}"
+        bindchange="onDateChange"
+      >
+        <view class="control picker-control">{{form.reminderDate}}</view>
+      </picker>
+      <text class="help">根据间隔自动计算，也可手动调整。</text>
+    </view>
+
+    <view class="field">
+      <text class="label">提醒时间 <text class="required">*</text></text>
+      <picker
+        aria-label="选择提醒时间"
+        mode="time"
+        value="{{form.reminderTime}}"
+        bindchange="onTimeChange"
+      >
+        <view class="control picker-control">{{form.reminderTime}}</view>
+      </picker>
+    </view>
+
+    <view class="field field-last">
+      <text class="label">简短备注（可选）</text>
+      <textarea
+        class="control note"
+        aria-label="简短备注"
+        value="{{form.note}}"
+        maxlength="{{maxNoteLength}}"
+        auto-height
+        placeholder="仅填写必要且不敏感的操作备注"
+        bindinput="onNoteInput"
+      />
+      <text class="help">最多 {{maxNoteLength}} 字，请勿填写敏感医疗信息。</text>
+    </view>
+  </view>
+
+  <button
+    class="submit"
+    type="primary"
+    disabled="{{!isValid || isAdding}}"
+    loading="{{isAdding}}"
+    bindtap="onSubmit"
+  >
+    {{isAdding ? '正在添加…' : '添加到系统日历'}}
+  </button>
+
+  <text class="footer-note">
+    创建后如需修改或删除，请前往手机系统日历操作。
+  </text>
+</view>

@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:knowledge-flow-test;DB_CLOSE_DELAY=-1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+app:
+  frontend-origin: http://localhost:3000

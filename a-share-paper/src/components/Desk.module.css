@@ -1,0 +1,207 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.page h1,
+.page h2 {
+  margin: 0;
+  font-weight: 650;
+}
+
+.page h1 {
+  font-size: 32px;
+}
+
+.top,
+.panelHead,
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+}
+
+.status {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  color: var(--muted);
+}
+
+.open {
+  color: var(--up);
+}
+
+.closed {
+  color: var(--muted);
+}
+
+.banner,
+.foot,
+.empty {
+  color: var(--muted);
+}
+
+.banner {
+  padding: 10px 12px;
+  background: #fff4e8;
+  border: 1px solid #efd3b4;
+}
+
+.metrics,
+.split {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.metrics {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.split {
+  grid-template-columns: 1fr 1fr;
+}
+
+.metrics div,
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.metrics div {
+  padding: 12px;
+}
+
+.rules {
+  margin: 12px 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.logic {
+  margin: 0;
+}
+
+.metrics span,
+.panelHead label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metrics strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel {
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.panelHead {
+  margin-bottom: 8px;
+}
+
+.chart {
+  width: 100%;
+  height: 160px;
+  color: var(--accent);
+}
+
+.chart polyline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.page table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.page th,
+.page td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-size: 14px;
+}
+
+.page th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.code {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.controls {
+  margin-top: 16px;
+  align-items: center;
+}
+
+.page input,
+.page select,
+.page button {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.page input {
+  min-width: 280px;
+  margin-left: 8px;
+}
+
+.page select {
+  margin-left: 8px;
+}
+
+.page button {
+  cursor: pointer;
+}
+
+.reset {
+  color: var(--accent);
+}
+
+.up {
+  color: var(--up);
+}
+
+.down {
+  color: var(--down);
+}
+
+@media (max-width: 800px) {
+  .metrics,
+  .split,
+  .top,
+  .controls,
+  .panelHead {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .status {
+    justify-items: start;
+  }
+}
